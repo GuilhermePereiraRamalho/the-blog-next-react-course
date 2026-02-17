@@ -1,11 +1,22 @@
+import { PostsList } from "@/components/PostsList";
 import { SpinLoader } from "@/components/SpinLoader";
-import clsx from "clsx";
+import { Suspense } from "react";
 
-export default function HomePage() {
-  console.log("HOMEPAGE");
+export default async function HomePage() {
+
   return (
     <div>
-      <SpinLoader containerClasses={clsx("min-h-40", "bg-amber-500")} />
+      <header className="text-6xl font-bold text-center py-8">
+        Header
+      </header>
+
+      <Suspense fallback={<SpinLoader />}>
+        <PostsList />
+      </Suspense>
+
+      <footer className="text-6xl font-bold text-center py-8">
+        Footer
+      </footer>
     </div>
   );
 }
