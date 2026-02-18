@@ -17,14 +17,29 @@ export default async function HomePage() {
       >
         <Link className="w-full h-full overflow-hidden rounded-xl" href="#">
           <Image
-          className="group-hover:scale-105 transition"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition"
             src="/images/bryen_0.png"
             width={1200}
             height={720}
             alt="Post title"
+            priority
           />
         </Link>
-        <div>
+        <div className={clsx("flex flex-col gap-4", "sm:justify-center")}>
+          <time
+            className="text-slate-600 block text-sm/tight"
+            dateTime="2026-02-18"
+          >
+            18/02/2026 09:30
+          </time>
+          <h1
+            className={clsx(
+              "text-2xl/tight font-extrabold",
+              "sm:text-4xl/tight",
+            )}
+          >
+            <Link href="#">Lorem ipsum dolor sit amet</Link>
+          </h1>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero at
           quidem hic aut dolorem, tempore autem libero recusandae est minima
           necessitatibus vitae tempora vel cupiditate mollitia aliquam labore.
