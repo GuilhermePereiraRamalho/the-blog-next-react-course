@@ -2,6 +2,7 @@ import { postRepository } from "@/repositories/post";
 import { PostCoverImage } from "../PostCoverImage";
 import { PostHeading } from "../PostHeading";
 import clsx from "clsx";
+import { formatDatetime, formatDistanceToNow } from "@/utils/format-datetime";
 
 export async function PostsList() {
   const posts = await postRepository.findAll();
@@ -14,10 +15,9 @@ export async function PostsList() {
       )}
     >
       {posts.map((post) => {
-        const postLink = `/post/${post.slug}`
+        const postLink = `/post/${post.slug}`;
         return (
           <div className="flex flex-col gap-4 group" key={post.id}>
-
             <PostCoverImage
               linkProps={{
                 href: postLink,
@@ -33,8 +33,9 @@ export async function PostsList() {
               <time
                 className="text-slate-600 block text-sm/tight"
                 dateTime={post.createdAt}
+                title={formatDistanceToNow(post.createdAt)}
               >
-                {post.createdAt}
+                {formatDatetime(post.createdAt)}
               </time>
               <PostHeading as="h2" url={postLink}>
                 {post.title}
