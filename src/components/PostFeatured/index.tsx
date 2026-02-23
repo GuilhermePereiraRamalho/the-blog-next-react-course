@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { PostCoverImage } from "../PostCoverImage";
-import { PostHeading } from "../PostHeading";
+import { PostSummary } from "../PostSummary";
 
 export function PostFeatured() {
-  const slug = "aaa"
-  const postLink = `/post/${slug}`
+  const slug = "aaa";
+  const postLink = `/post/${slug}`;
   return (
     <section
       className={clsx("grid grid-cols-1 gap-8 mb-16 group", "sm:grid-cols-2")}
@@ -21,23 +21,15 @@ export function PostFeatured() {
           priority: true,
         }}
       />
-      <div className={clsx("flex flex-col gap-4", "sm:justify-center")}>
-        <time
-          className="text-slate-600 block text-sm/tight"
-          dateTime="2026-02-18"
-        >
-          18/02/2026 09:30
-        </time>
-        <PostHeading as="h1" url={postLink}>
-          Lorem ipsum dolor sit amet.
-        </PostHeading>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero at quidem
-        hic aut dolorem, tempore autem libero recusandae est minima
-        necessitatibus vitae tempora vel cupiditate mollitia aliquam labore.
-        Veritatis rerum in ea ducimus veniam. Ad ducimus perspiciatis commodi
-        enim architecto. Accusamus eaque ipsa beatae odio reprehenderit ipsam
-        rerum cum aperiam?
-      </div>
+      <PostSummary
+        postLink={postLink}
+        postHeading="h1"
+        createdAt={"2025-04-08T00:24:38.616Z"}
+        title={"Rotina matinal de pessoas altamente eficazes"}
+        excerpt={
+          "O Next.js também é uma boa escolha para quem quer se preocupar com performance e SEO."
+        }
+      />
     </section>
   );
 }
